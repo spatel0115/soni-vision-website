@@ -1468,15 +1468,32 @@ h1, h2, h3, h4 {
    HOMEPAGE IMPROVEMENTS — NEW SECTIONS
    ============================================== */
 
-/* --- LANGUAGE BAR --- */
-.lang-bar {
+/* --- TOP UTILITY BAR --- */
+.top-utility-bar {
   background: var(--navy);
-  color: rgba(255,255,255,0.75);
+  padding: 9px 0;
+}
+.top-utility-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.utility-left {
   font-size: 11px;
-  font-family: var(--font-body);
-  letter-spacing: 0.5px;
-  padding: 8px 0;
-  text-align: center;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.3px;
+}
+.utility-referring {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.utility-referring:hover { color: #6bb8ae; }
+@media (max-width: 600px) {
+  .utility-left { display: none; }
+  .top-utility-bar .container { justify-content: center; }
 }
 
 /* --- PRESS BAR --- */
