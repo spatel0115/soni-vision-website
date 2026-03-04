@@ -7,7 +7,7 @@ You're working inside the **WAT framework** (Workflows, Agents, Tools). This arc
 **Layer 1: Workflows (The Instructions)**
 - Markdown SOPs stored in `workflows/`
 - Each workflow defines the objective, required inputs, which tools to use, expected outputs, and how to handle edge cases
-- Written 7in plain language, the same way you'd brief someone on your team
+- Written in plain language, the same way you'd brief someone on your team
 
 **Layer 2: Agents (The Decision-Maker)**
 - This is your role. You're responsible for intelligent coordination.
@@ -162,6 +162,10 @@ When building, use this loop to refine quality:
 6. Fix and repeat until it matches Maloney-Shamie quality
 - `screenshot.mjs` lives in project root, auto-increments filenames
 
+### GitHub Repository
+`https://github.com/spatel0115/soni-vision-website` (public)
+Push changes with `git add [files] && git commit -m "message" && git push`
+
 ### Pages Built (all complete)
 - `index.html` — Homepage ✅
 - `about.html` — Dr. Soni + Dr. Reddy bios ✅
@@ -174,6 +178,26 @@ When building, use this loop to refine quality:
 - `blog/evo-icl-vs-lasik-houston.html` — by Dr. Reddy ✅
 - `blog/how-to-choose-cataract-surgeon-cypress-tx.html` — by Dr. Soni ✅
 - `blog/multifocal-iol-pros-and-cons.html` — by Dr. Reddy ✅
+
+### Design Decisions Made
+- **Header**: White background (not navy), always visible — scroll toggle removed from all pages. Nav text is navy. CTA button hidden on mobile (≤768px). Hamburger menu opens a navy dropdown with white text.
+- **Homepage hero photo**: `dr-soni-hero.webp` (Dr. Soni solo). `both-doctors.webp` exists but was reverted.
+- **Inner page heroes (.page-hero)**: Reduced from 160px/90px padding to 110px/52px. Text spans full width.
+- **Mobile**: Comprehensive responsive fixes applied — hero photo shows below text, stats in 3-column row, surgeon card photos 320px (not 420px), section padding 72px on mobile.
+
+### Screenshot Workflow — Mobile
+For mobile screenshots, use Puppeteer inline (not `screenshot.mjs` which requires a URL arg):
+```js
+node -e "import('puppeteer').then(async ({default: p}) => {
+  const b = await p.launch({ headless: true });
+  const page = await b.newPage();
+  await page.setViewport({ width: 390, height: 844 });
+  await page.goto('file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/index.html', { waitUntil: 'domcontentloaded', timeout: 15000 });
+  await new Promise(r => setTimeout(r, 1000));
+  await page.screenshot({ path: 'temporary screenshots/mobile.png', clip: { x:0, y:0, width:390, height:750 } });
+  await b.close();
+});"
+```
 
 ---
 
