@@ -171,7 +171,7 @@ Live site: `sonivisioninstitute.com`
 ### Screenshot / Visual Iteration Workflow
 Puppeteer has been removed. Use Playwright MCP for all screenshots:
 1. Build/edit HTML
-2. Use `mcp__playwright__browser_navigate` to open `file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/[page].html`
+2. Use `mcp__playwright__browser_navigate` to open `file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/Soni%20Vision%20Website/[page].html`
 3. Use `mcp__playwright__browser_take_screenshot` to capture
 4. Use `mcp__playwright__browser_resize` to test at different viewports (1440, 768, 390)
 5. Check console with `mcp__playwright__browser_console_messages`
