@@ -839,6 +839,7 @@ h1, h2, h3, h4 {
 }
 .feature-item h4 { font-size: 17px; color: var(--navy); margin-bottom: 5px; }
 .feature-item p  { font-size: 15px; color: var(--body-light); line-height: 1.7; }
+.two-col-text .feature-item p { margin-bottom: 0; }
 
 /* Symptom / process steps */
 .steps-grid {
