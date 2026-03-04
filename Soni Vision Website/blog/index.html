@@ -152,7 +152,7 @@
     <div class="container">
       <div class="trust-item">
         <span class="trust-icon">★</span>
-        <span class="trust-text">4.95 Stars — Houston's Highest-Rated</span>
+        <span class="trust-text"><span data-live="rating">4.9</span> Stars — Houston's Highest-Rated</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-item">
@@ -195,7 +195,7 @@
         <div class="footer-col"><h4>Contact</h4><address>27700 Northwest Freeway<br>Suite 390<br>Cypress, TX 77433<br><br><a href="tel:+13468186780">(346) 818-6780</a><br><br>Mon – Fri: 8am – 5pm</address></div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Soni Vision Institute. All rights reserved.</p>
+        <p>&copy; 2026 Soni Vision Institute. All rights reserved.</p>
         <p>Privacy Policy &nbsp;&middot;&nbsp; Accessibility</p>
       </div>
     </div>
@@ -203,8 +203,16 @@
 
   <script>
     const header = document.getElementById('site-header');
-    
+
     document.getElementById('mobile-toggle').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+
+    if (window.location.protocol !== 'file:') {
+      fetch('/api/reviews').then(r => r.ok ? r.json() : null).then(data => {
+        if (!data) return;
+        document.querySelectorAll('[data-live="rating"]').forEach(el => el.textContent = data.rating);
+        document.querySelectorAll('[data-live="reviewCount"]').forEach(el => el.textContent = data.reviewCount);
+      }).catch(() => {});
+    }
   </script>
 </body>
 </html>

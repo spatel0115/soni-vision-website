@@ -31,8 +31,8 @@
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.95",
-      "reviewCount": "500",
+      "ratingValue": "4.9",
+      "reviewCount": "703",
       "bestRating": "5"
     },
     "medicalSpecialty": "Ophthalmology",
@@ -80,7 +80,7 @@
         <div class="hero-inner">
           <div class="hero-rating">
             <span class="hero-stars">★★★★★</span>
-            <span class="hero-rating-label">4.95 &nbsp;·&nbsp; Best Rated in Houston</span>
+            <span class="hero-rating-label" id="hero-rating-label"><span data-live="rating">4.9</span> &nbsp;·&nbsp; Best Rated in Houston</span>
           </div>
           <h1>Houston's Premier<br><em>Eye Surgeons.</em></h1>
           <p class="hero-sub">Two fellowship-trained surgeons. Cataract surgery, premium IOLs, LASIK &amp; EVO ICL — serving Cypress &amp; Greater Houston.</p>
@@ -90,11 +90,11 @@
           </div>
           <div class="hero-stats">
             <div>
-              <div class="hero-stat-num">4.95</div>
+              <div class="hero-stat-num" data-live="rating">4.9</div>
               <div class="hero-stat-label">Star Rating</div>
             </div>
             <div>
-              <div class="hero-stat-num">500+</div>
+              <div class="hero-stat-num" data-live="reviewCount">703</div>
               <div class="hero-stat-label">5-Star Reviews</div>
             </div>
             <div>
@@ -118,7 +118,7 @@
     <div class="container">
       <div class="trust-item">
         <span class="trust-icon">★</span>
-        <span class="trust-text">4.95 Stars — Highest-Rated in Houston</span>
+        <span class="trust-text"><span data-live="rating">4.9</span> Stars — Highest-Rated in Houston</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-item">
@@ -281,7 +281,7 @@
             <span class="diff-num">02</span>
             <div class="diff-content">
               <h4>Houston's Highest Rating</h4>
-              <p>A 4.95-star average across 500+ reviews — the highest of any eye surgery practice in Greater Houston. Every star reflects a patient whose life we changed.</p>
+              <p>A <span data-live="rating">4.9</span>-star average across <span data-live="reviewCount">703</span>+ reviews — the highest of any eye surgery practice in Greater Houston. Every star reflects a patient whose life we changed.</p>
             </div>
           </div>
           <div class="diff-item">
@@ -315,9 +315,9 @@
           <h2 class="section-title">What Patients<br><em>Are Saying</em></h2>
         </div>
         <div class="reviews-aggregate">
-          <div class="big-num">4.95</div>
+          <div class="big-num" data-live="rating">4.9</div>
           <div class="big-stars">★★★★★</div>
-          <div class="review-count">500+ Google Reviews</div>
+          <div class="review-count"><span data-live="reviewCount">703</span>+ Google Reviews</div>
         </div>
       </div>
       <div class="reviews-grid">
@@ -360,7 +360,7 @@
 
       </div>
       <div class="reviews-footer">
-        <a href="https://www.google.com/search?q=Soni+Vision+Institute+reviews" target="_blank" rel="noopener noreferrer">Read All 500+ Reviews on Google &rarr;</a>
+        <a href="https://www.google.com/search?q=Soni+Vision+Institute+reviews" target="_blank" rel="noopener noreferrer">Read All <span data-live="reviewCount">703</span>+ Reviews on Google &rarr;</a>
       </div>
     </div>
   </section>
@@ -494,7 +494,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Soni Vision Institute. All rights reserved.</p>
+        <p>&copy; 2026 Soni Vision Institute. All rights reserved.</p>
         <p>Privacy Policy &nbsp;&middot;&nbsp; Accessibility</p>
       </div>
     </div>
@@ -502,6 +502,23 @@
 
 
   <script>
+    // Live Google review count — fetches from Vercel API, falls back to hardcoded defaults
+    (function () {
+      if (window.location.protocol === 'file:') return; // local dev, skip
+      fetch('/api/reviews')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data) return;
+          document.querySelectorAll('[data-live="rating"]').forEach(el => {
+            el.textContent = data.rating;
+          });
+          document.querySelectorAll('[data-live="reviewCount"]').forEach(el => {
+            el.textContent = data.reviewCount;
+          });
+        })
+        .catch(() => {}); // silently fall back to hardcoded defaults
+    })();
+
     // Mobile menu
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('main-nav');

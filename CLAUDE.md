@@ -74,6 +74,19 @@ Stay pragmatic. Stay reliable. Keep learning.
 
 ---
 
+## Frontend Rules (Soni Vision Website)
+
+### Always Do First
+- **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
+
+### Hard Rules
+- Do not use `transition-all`
+- Do not stop after one screenshot pass — do at least 2 comparison rounds; stop only when no visible differences remain or user says so
+- When comparing screenshots, be specific: e.g. "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
+- Check: spacing/padding, font size/weight/line-height, colors (exact hex), alignment, border-radius, shadows, image sizing
+
+---
+
 ## Soni Vision Website Project
 
 ### Design References
@@ -144,7 +157,8 @@ Saved in `temporary screenshots/`:
 - `screenshot-5-soni-vision-live.png` — Current Soni Vision live site (what we're replacing)
 
 ### Current Soni Vision Site — What to Fix
-Live site: `sonivisioninstitute.com`
+Live site (old): `sonivisioninstitute.com`
+**New site (live on Vercel):** `https://soni-vision-website.vercel.app/`
 - H1 "LEADING EDGE SURGICAL PRACTICE" — broken, generic, no SEO value
 - 4.95 stars completely hidden — buried at bottom, should be front and center
 - Clip art service icons — looks cheap
