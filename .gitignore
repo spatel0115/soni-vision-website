@@ -1,8 +1,10 @@
 # macOS
 .DS_Store
 
-# Claude
-.claude/
+# Claude — ignore session data but track project commands/agents
+.claude/*
+!.claude/commands/
+!.claude/agents/
 
 # Dev tools
 node_modules/

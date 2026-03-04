@@ -101,6 +101,22 @@ Located in `Branding/`:
 - `both docs.webp` — Both doctors together, professional corridor shoot
 - `soni 2_files/2023-08-17.jpg` — Surgery scrub-in photo (authenticates surgical focus)
 
+### Workflows (Slash Commands)
+Three review workflows available via slash commands:
+- `/code-review` — Pragmatic code review before any push
+- `/design-review` — Visual review using Playwright MCP across desktop/tablet/mobile
+- `/security-review` — Security-focused review for any new form handling or user input
+
+Agents live in `.claude/agents/`. Commands in `.claude/commands/`. Context in `context/`.
+
+### Quick Visual Check (After Any Front-End Change)
+IMMEDIATELY after implementing any front-end change:
+1. Use Playwright MCP to navigate to the affected page(s)
+2. Take a screenshot at desktop (1440px) and mobile (390px)
+3. Verify against `context/design-principles.md` and `context/style-guide.md`
+4. Check browser console for errors
+5. For major changes, run `/design-review` for full report
+
 ### Build Standards
 - Plain HTML / CSS / Vanilla JS — no frameworks
 - Serif display font for headings (matches premium surgical practice feel)
