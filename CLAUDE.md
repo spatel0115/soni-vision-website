@@ -113,7 +113,7 @@ Agents live in `.claude/agents/`. Commands in `.claude/commands/`. Context in `c
 IMMEDIATELY after implementing any front-end change:
 1. Use Playwright MCP to navigate to the affected page(s)
 2. Take a screenshot at desktop (1440px) and mobile (390px)
-3. Verify against `context/design-principles.md` and `context/style-guide.md`
+3. Verify against `Soni Vision Website/context/design-principles.md` and `Soni Vision Website/context/style-guide.md`
 4. Check browser console for errors
 5. For major changes, run `/design-review` for full report
 
