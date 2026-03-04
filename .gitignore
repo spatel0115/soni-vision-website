@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Claude
+.claude/
+
+# Dev tools
+node_modules/
+package.json
+package-lock.json
+screenshot.mjs
+temporary screenshots/
+
+# Reference/research files (not part of the website)
+Branding/
+Houston MD Analysis/
+Houston OD Analysis/
+Houston Optom Market Analysis/
+workflows/
+tools/
+.tmp/
+.env
+
+# OAuth credentials — never commit these
+credentials.json
+token.json
