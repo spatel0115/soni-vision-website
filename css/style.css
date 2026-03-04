@@ -1375,8 +1375,9 @@ h1, h2, h3, h4 {
 @media (max-width: 900px) {
   .surgeon-card { grid-template-columns: 1fr; }
   .surgeon-card.reverse { direction: ltr; }
-  .surgeon-photo { min-height: 420px; }
-  .surgeon-info { padding: 48px 40px; }
+  .surgeon-photo { min-height: 320px; }
+  .surgeon-info { padding: 40px 32px; }
+  .surgeon-info h2 { font-size: 36px; }
   .reviews-grid { grid-template-columns: 1fr; }
   .reviews-header { flex-direction: column; align-items: flex-start; gap: 24px; }
   .reviews-aggregate { text-align: left; }
@@ -1384,8 +1385,13 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
+
+  /* Header: hide CTA button and phone, show only logo + hamburger */
+  .header-right .btn { display: none; }
   .main-nav, .header-phone { display: none; }
   .mobile-toggle { display: flex; }
+
+  /* Mobile nav open: white text on navy background */
   .main-nav.open {
     display: flex;
     flex-direction: column;
@@ -1396,13 +1402,46 @@ h1, h2, h3, h4 {
     gap: 24px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   }
+  .main-nav.open a { color: var(--white); }
+
+  /* Hero: show photo below text, compact height */
+  .hero { grid-template-rows: auto auto; }
+  .hero-right {
+    display: block;
+    min-height: 300px;
+  }
+  .hero-left {
+    min-height: auto;
+    padding: 100px 0 48px;
+  }
+  .hero h1 { font-size: clamp(40px, 11vw, 60px); }
+
+  /* Hero stats: 3-column row */
+  .hero-stats {
+    gap: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .hero-stats > div {
+    flex: 1;
+    padding-right: 16px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+  }
+  .hero-stats > div:last-child { border-right: none; padding-right: 0; }
+  .hero-stat-num { font-size: 26px; }
+  .hero-stat-label { font-size: 9px; letter-spacing: 0.5px; }
+
+  /* Sections: reduce padding */
+  .content-section { padding: 72px 0; }
+  .page-hero { padding: 88px 0 40px; }
+
   .trust-bar .container { flex-wrap: wrap; justify-content: flex-start; padding: 0 24px; gap: 16px; }
   .trust-divider { display: none; }
   .trust-item { padding: 0; }
   .services-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 32px; flex-wrap: wrap; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
   /* Blog */
   .blog-featured { grid-template-columns: 1fr; }
   .blog-featured-img { min-height: 260px; }
