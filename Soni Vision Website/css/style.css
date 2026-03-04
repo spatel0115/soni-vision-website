@@ -112,7 +112,7 @@ h1, h2, h3, h4 {
    ============================================== */
 .site-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 37px; left: 0; right: 0;
   z-index: 1000;
   transition: background var(--ease), box-shadow var(--ease);
 }
@@ -193,7 +193,7 @@ h1, h2, h3, h4 {
 .hero-left {
   display: flex;
   align-items: center;
-  padding: 120px 0 80px;
+  padding: 157px 0 80px;
 }
 .hero-left .container { padding-right: 60px; }
 
@@ -777,7 +777,7 @@ h1, h2, h3, h4 {
    ============================================== */
 .page-hero {
   background: var(--navy);
-  padding: 110px 0 52px;
+  padding: 147px 0 52px;
   color: var(--white);
 }
 .page-hero-inner { max-width: 100%; }
@@ -1433,7 +1433,7 @@ h1, h2, h3, h4 {
 
   /* Sections: reduce padding */
   .content-section { padding: 72px 0; }
-  .page-hero { padding: 88px 0 40px; }
+  .page-hero { padding: 125px 0 40px; }
 
   .trust-bar .container { flex-wrap: wrap; justify-content: flex-start; padding: 0 24px; gap: 16px; }
   .trust-divider { display: none; }
@@ -1472,6 +1472,11 @@ h1, h2, h3, h4 {
 .top-utility-bar {
   background: var(--navy);
   padding: 9px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
 }
 .top-utility-bar .container {
   display: flex;
