@@ -45,7 +45,7 @@
   <!-- ==============================
        NAVIGATION
        ============================== -->
-  <header class="site-header" id="site-header">
+  <header class="site-header scrolled" id="site-header">
     <div class="container">
       <a href="index.html" class="logo">
         <img src="images/soni-logo.svg" alt="Soni Vision Institute">
@@ -106,7 +106,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <img src="images/both-doctors.webp" alt="Dr. Ruhi Soni and Dr. Nikitha Reddy — Soni Vision Institute, Cypress TX">
+      <img src="images/dr-soni-hero.webp" alt="Dr. Ruhi Soni, MD — Soni Vision Institute, Cypress TX">
     </div>
   </section>
 
@@ -502,12 +502,6 @@
 
 
   <script>
-    // Sticky header
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true });
-
     // Mobile menu
     const toggle = document.getElementById('mobile-toggle');
     const nav = document.getElementById('main-nav');
