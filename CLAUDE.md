@@ -168,15 +168,15 @@ Live site: `sonivisioninstitute.com`
 - **Navy:** `#0d3450` | **White:** `#ffffff`
 - **Font sizes:** Hero 70px | Headings 35px | Body 15–18px
 
-### Screenshot Iteration Workflow
-When building, use this loop to refine quality:
+### Screenshot / Visual Iteration Workflow
+Puppeteer has been removed. Use Playwright MCP for all screenshots:
 1. Build/edit HTML
-2. Serve locally: `python3 -m http.server 3000`
-3. Screenshot: `node screenshot.mjs http://localhost:3000 label`
-4. Read PNG with Read tool — compare against reference screenshots
-5. Identify specific issues (font size, spacing, color, alignment)
+2. Use `mcp__playwright__browser_navigate` to open `file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/[page].html`
+3. Use `mcp__playwright__browser_take_screenshot` to capture
+4. Use `mcp__playwright__browser_resize` to test at different viewports (1440, 768, 390)
+5. Check console with `mcp__playwright__browser_console_messages`
 6. Fix and repeat until it matches Maloney-Shamie quality
-- `screenshot.mjs` lives in project root, auto-increments filenames
+- For a full structured review run `/design-review`
 
 ### GitHub Repository
 `https://github.com/spatel0115/soni-vision-website` (public)
