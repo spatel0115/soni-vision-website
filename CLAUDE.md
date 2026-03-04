@@ -171,7 +171,7 @@ Live site: `sonivisioninstitute.com`
 ### Screenshot / Visual Iteration Workflow
 Puppeteer has been removed. Use Playwright MCP for all screenshots:
 1. Build/edit HTML
-2. Use `mcp__playwright__browser_navigate` to open `file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/Soni%20Vision%20Website/[page].html`
+2. Use `mcp__playwright__browser_navigate` to open `file:///Users/mbp/Desktop/Claude/Soni%20Vision/Soni%20Vision%20Website/[page].html`
 3. Use `mcp__playwright__browser_take_screenshot` to capture
 4. Use `mcp__playwright__browser_resize` to test at different viewports (1440, 768, 390)
 5. Check console with `mcp__playwright__browser_console_messages`
@@ -200,20 +200,6 @@ Push changes with `git add [files] && git commit -m "message" && git push`
 - **Homepage hero photo**: `dr-soni-hero.webp` (Dr. Soni solo). `both-doctors.webp` exists but was reverted.
 - **Inner page heroes (.page-hero)**: Reduced from 160px/90px padding to 110px/52px. Text spans full width.
 - **Mobile**: Comprehensive responsive fixes applied — hero photo shows below text, stats in 3-column row, surgeon card photos 320px (not 420px), section padding 72px on mobile.
-
-### Screenshot Workflow — Mobile
-For mobile screenshots, use Puppeteer inline (not `screenshot.mjs` which requires a URL arg):
-```js
-node -e "import('puppeteer').then(async ({default: p}) => {
-  const b = await p.launch({ headless: true });
-  const page = await b.newPage();
-  await page.setViewport({ width: 390, height: 844 });
-  await page.goto('file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/index.html', { waitUntil: 'domcontentloaded', timeout: 15000 });
-  await new Promise(r => setTimeout(r, 1000));
-  await page.screenshot({ path: 'temporary screenshots/mobile.png', clip: { x:0, y:0, width:390, height:750 } });
-  await b.close();
-});"
-```
 
 ---
 

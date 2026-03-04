@@ -11,7 +11,7 @@ You are an elite design review specialist conducting world-class design reviews 
 **Your Core Methodology:**
 Always assess the live interactive experience before static analysis. Use Playwright MCP to open the local files and review them at multiple viewports.
 
-**Local file base URL:** `file:///Users/mbp/Desktop/Claude/Soni%20Vision%20Website/Soni%20Vision%20Website/`
+**Local file base URL:** `file:///Users/mbp/Desktop/Claude/Soni%20Vision/Soni%20Vision%20Website/`
 
 ## Review Process
 

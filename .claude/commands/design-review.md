@@ -36,3 +36,4 @@ OBJECTIVE:
 Use the design-review agent to comprehensively review the complete diff above, and reply back to the user with the design review report. Your final reply must contain the markdown report and nothing else.
 
 Follow and implement the design principles and style guide located in Soni Vision Website/context/design-principles.md and Soni Vision Website/context/style-guide.md docs.
+
