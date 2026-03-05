@@ -139,17 +139,40 @@ IMMEDIATELY after implementing any front-end change:
 - Mobile-first, fast-loading
 - Surgical-only positioning — not a glasses shop, not a chain
 
-### Pages to Build
-1. `index.html` — Homepage
-2. `about.html` — Dr. Soni + Dr. Reddy bios
-3. `cataract-surgery.html` — Core service page
-4. `premium-iols.html` — Dedicated IOL page (biggest gap in market)
-5. `lasik.html` — Secondary service page
-6. `contact.html` — Location, hours, booking
-7. `blog/` — Content hub for keyword rankings
+### Full Site Architecture (from user's PDF sitemap)
+Complete nav structure with dropdowns:
+```
+Home | About ▾ | Services ▾ | Conditions ▾ | Patient Portal | Reviews | Referrals | Book Now | Patients ▾ | Blog
+```
+
+**About ▾:** About, Physicians (anchor on about.html)
+
+**Services ▾** (no page, dropdown only):
+- Cataracts group: cataract-surgery.html, laser-cataract-surgery.html, toric-lens.html, edof-lens.html, multifocal-lens.html, light-adjustable-lens.html
+- Vision Correction group: refractive-lens-exchange.html, lasik.html, prk.html, lasik.html#evo-icl
+- Glaucoma group: glaucoma.html, glaucoma-laser.html, migs.html
+
+**Conditions ▾** (no page, dropdown only):
+- conditions/astigmatism.html, conditions/myopia.html, conditions/hyperopia.html, conditions/presbyopia.html
+- conditions/macular-degeneration.html, conditions/dry-eye.html, conditions/eyelid-conditions.html
+- Cataracts → cataract-surgery.html | Glaucoma → glaucoma.html (shared with Services)
+
+**Patient Portal** → ModMed SSO (external, new tab): `https://sso.ema.md/auth/realms/Modmed/protocol/openid-connect/auth`
+
+**Reviews** → reviews.html
+
+**Referrals** → referrals.html (standalone form page)
+
+**Book Now** → contact.html
+
+**Patients ▾** (no page, dropdown only):
+- Pay Bill → `https://sonivision.ema.md/ema/pay/onlinepay` (external, new tab)
+- Pre/Post Op Instructions → patients/pre-post-op.html
+
+**Blog** → blog/index.html
 
 ### Reference Screenshots
-Saved in `temporary screenshots/`:
+Saved in `Soni Vision Website/screenshots/`:
 - `screenshot-1-maloney-shamie.png` — Maloney-Shamie live site
 - `screenshot-2-advanced-vision-care.png` — Advanced Vision Care physicians page (live)
 - `screenshot-3-maloney-shamie-local.png` — Maloney-Shamie from local saved HTML
@@ -196,7 +219,8 @@ Puppeteer has been removed. Use Playwright MCP for all screenshots:
 `https://github.com/spatel0115/soni-vision-website` (public)
 Push changes with `git add [files] && git commit -m "message" && git push`
 
-### Pages Built (all complete)
+### Pages Built
+**Core pages (complete):**
 - `index.html` — Homepage ✅
 - `about.html` — Dr. Soni + Dr. Reddy bios ✅
 - `cataract-surgery.html` — Core service page ✅
@@ -209,11 +233,50 @@ Push changes with `git add [files] && git commit -m "message" && git push`
 - `blog/how-to-choose-cataract-surgeon-cypress-tx.html` — by Dr. Soni ✅
 - `blog/multifocal-iol-pros-and-cons.html` — by Dr. Reddy ✅
 
+**Full architecture — complete ✅**
+
+*Nav restructure (all existing pages):*
+- CSS dropdown nav styles → style.css ✅
+- Update nav HTML on all 11 existing pages ✅
+
+*Services — Cataracts group:*
+- `laser-cataract-surgery.html` ✅
+- `toric-lens.html` ✅
+- `edof-lens.html` ✅
+- `multifocal-lens.html` ✅
+- `light-adjustable-lens.html` ✅
+
+*Services — Vision Correction group:*
+- `refractive-lens-exchange.html` ✅
+- `prk.html` ✅
+
+*Services — Glaucoma group:*
+- `glaucoma.html` ✅
+- `glaucoma-laser.html` ✅
+- `migs.html` ✅
+
+*Conditions (7 pages):*
+- `conditions/astigmatism.html` ✅
+- `conditions/myopia.html` ✅
+- `conditions/hyperopia.html` ✅
+- `conditions/presbyopia.html` ✅
+- `conditions/macular-degeneration.html` ✅
+- `conditions/dry-eye.html` ✅
+- `conditions/eyelid-conditions.html` ✅
+
+*Utility pages:*
+- `reviews.html` ✅
+- `referrals.html` ✅
+- `patients/pre-post-op.html` ✅
+
 ### Design Decisions Made
 - **Header**: White background (not navy), always visible — scroll toggle removed from all pages. Nav text is navy. CTA button hidden on mobile (≤768px). Hamburger menu opens a navy dropdown with white text.
 - **Homepage hero photo**: `dr-soni-hero.webp` (Dr. Soni solo). `both-doctors.webp` exists but was reverted.
 - **Inner page heroes (.page-hero)**: Reduced from 160px/90px padding to 110px/52px. Text spans full width.
 - **Mobile**: Comprehensive responsive fixes applied — hero photo shows below text, stats in 3-column row, surgeon card photos 320px (not 420px), section padding 72px on mobile.
+- **Nav structure**: Mega-nav with 10 top-level items and dropdowns. Services and Conditions are dropdown-only (no landing page). About and Patients have dropdowns. Patient Portal and Pay Bill open external ModMed links in new tab.
+- **Dr. Reddy bio**: Fellowship at University of Toronto (GAASS) under Dr. Ike Ahmed. No Cedars-Sinai mention. Board Certified ABO Nov 2024. Medical advisory boards: Glaukos, Sight Sciences, ViaLase, LENSAR.
+- **Dr. Soni bio**: CV not yet received — update when provided.
 
 ---
 
